@@ -1,4 +1,6 @@
-﻿create table Users(
+﻿use college;
+
+create table Users(
 [user_id] int IDENTITY(1,1) primary key,
 username varchar(100) not null,
 fullname varchar(200),
@@ -11,8 +13,10 @@ item_id int IDENTITY(1,1) primary key,
 title varchar(200) not null,
 category varchar(200),
 descr varchar(MAX),
-pictures varchar(400)
+pictures varchar(400),
+user_id INTEGER NOT NULL
 );
+
 create table ItemRating(
 item_id int foreign key references Items(item_id) on delete cascade,
 [user_id] int foreign key references Users([user_id]) on delete cascade,
